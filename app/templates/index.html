@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<html>
+<head>
+    <title>Form</title>
+</head>
+<body>
+    <form action="/" method="Post">
+        {{ form.csrf_token }}
+        {{ form.opts }} 
+        {{ form.submit() }}
+        <ul>
+            {% for error in form.opts.errors %}
+            <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </form>
+</body>
+</html>
+{% endblock %}
+
+
